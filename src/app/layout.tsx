@@ -2,16 +2,15 @@ import type { Metadata } from 'next';
 import { Inter, Source_Code_Pro } from 'next/font/google';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
-import { cn } from '@/lib/utils';
 
 const fontInter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-sans',
 });
 
 const fontSourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
-  variable: '--font-source-code-pro',
+  variable: '--font-mono',
 })
 
 export const metadata: Metadata = {
@@ -26,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("font-body antialiased", fontInter.variable, fontSourceCodePro.variable)}>
+      <body className={`${fontInter.variable} ${fontSourceCodePro.variable} font-sans antialiased`}>
         {children}
         <Toaster />
       </body>
